@@ -1,0 +1,84 @@
+# Graduation Sniper Bot Configuration
+# Copy this file and fill in your API keys/private key
+
+[rpc]
+# Helius RPC URL (required for mainnet connection)
+# Get from: https://www.helius.dev/
+helius_url = "https://mainnet.helius-rpc.com"
+
+# Helius Geyser gRPC URL (required for Yellowstone stream)
+# This bypasses standard RPC entirely - latency: ~1-5ms vs 50-200ms for WebSocket
+# Get from: https://www.helius.dev/ - enable Geyser
+helius_geyser_url = "grpc://mainnet.helius-rpc.com:8899"
+
+# QuickNode RPC URL (secondary, for fanout)
+# Get from: https://quicknode.com/
+quicknode_url = "https://mainnet.quicknode.com"
+
+# Triton RPC URL ( tertiary, for fanout)
+# Get from: https://triton.tg/
+triton_url = "https://rpc.triton.tg"
+
+#[wallet]
+# Path to your Solana keypair JSON file
+# Generate with: solana keys generate
+private_key_path = "./keypair.json"
+
+#[trading]
+# Amount of SOL to buy per trade (default: 0.3)
+buy_amount_sol = 0.3
+# Maximum amount of SOL per trade (default: 1.0)
+max_buy_amount_sol = 1.0
+# Maximum concurrent positions (default: 3)
+max_concurrent_positions = 3
+# Daily loss limit percentage (default: 15%)
+daily_loss_limit_percent = 15
+# Slippage in basis points (300 = 3%) (default: 300)
+slippage_bps = 300
+
+#[filters]
+# minimum RugCheck score (default: 500)
+min_rugcheck_score = 500
+# maximum dev wallet holdings as % of supply (default: 10)
+max_dev_holdings_percent = 10
+# maximum top 10 holders combined concentration (default: 35)
+max_top10_concentration_percent = 35
+# minimum token age in minutes (default: 8)
+min_token_age_minutes = 8
+# maximum token age in minutes (default: 180)
+max_token_age_minutes = 180
+# minimum unique buyer count (default: 50)
+min_unique_buyers = 50
+# minimum SOL reserves for graduation detection (default: 83.0)
+min_sol_reserves = 83.0
+# maximum SOL reserves for graduation detection (default: 87.0)
+max_sol_reserves = 87.0
+
+#[exit]
+# Stop loss percentage (default: 25)
+stop_loss_percent = 25
+# Take profit 1 at +80% (sell 40%)
+take_profit_1_percent = 80
+take_profit_1_size = 0.40
+# Take profit 2 at +150% (sell 30%)
+take_profit_2_percent = 150
+take_profit_2_size = 0.30
+# Take profit 3 at +300% (sell 20%)
+take_profit_3_percent = 300
+take_profit_3_size = 0.20
+# Maximum hold time in minutes (default: 20)
+max_hold_minutes = 20
+# Trailing stop: drop from peak % (default: 40)
+trailing_stop_from_peak_percent = 40
+
+#[jito]
+# Base tip in lamports (default: 100000 = 0.0001 SOL)
+tip_lamports = 100000
+# Maximum tip in lamports (default: 1000000 = 0.001 SOL)
+max_tip_lamports = 1000000
+
+#[logging]
+# Log level: error, warn, info, debug, trace
+log_level = "info"
+# Log file path
+log_file = "./bot.log"
